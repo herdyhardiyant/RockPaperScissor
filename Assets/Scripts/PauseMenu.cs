@@ -12,10 +12,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private Button quitButton;
     
-    public void OpenMenu()
-    {
-        gameObject.SetActive(true);
-    }
     
     public void CloseMenu()
     {

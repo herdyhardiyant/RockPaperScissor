@@ -35,6 +35,7 @@ namespace OnlineFeatures
                 return;
             }
         
+            PhotonNetwork.AutomaticallySyncScene = true;
             PhotonNetwork.NickName = usernameInput.text;
             PhotonNetwork.ConnectUsingSettings();
             feedbackText.text = "Connecting to server...";
@@ -46,8 +47,5 @@ namespace OnlineFeatures
             SceneManager.LoadScene("Lobby");
         }
 
-        //TODO feedback connection status on connected to master
-        
-    
     }
 }

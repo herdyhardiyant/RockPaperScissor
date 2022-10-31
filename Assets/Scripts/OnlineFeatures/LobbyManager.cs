@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
@@ -28,6 +29,11 @@ namespace OnlineFeatures
         List<RoomItem> _roomButtonList = new List<RoomItem>();
 
 
+        private void Awake()
+        {
+            leaveRoomButton.onClick.AddListener(LeaveRoom);
+        }
+
         private void Start()
         {
             PhotonNetwork.JoinLobby();
@@ -53,7 +59,7 @@ namespace OnlineFeatures
             RoomOptions roomOptions = new RoomOptions();
             roomOptions.MaxPlayers = 2;
             PhotonNetwork.CreateRoom(newRoomInputField.text, roomOptions);
-
+            print("Creating room " + newRoomInputField.text);
             BuildRoomButton(newRoomInputField.text);
         }
 
@@ -63,9 +69,10 @@ namespace OnlineFeatures
                 PhotonNetwork.LoadLevel(levelName);
         }
 
-        public void ExitRoom()
+        public void LeaveRoom()
         {
             PhotonNetwork.LeaveRoom();
+            roomPanel.SetActive(false);
         }
 
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -97,6 +104,7 @@ namespace OnlineFeatures
             RoomItem roomItem = newRoomItem.GetComponent<RoomItem>();
             roomItem.Set(this, createdRoomName);
             _roomButtonList.Add(roomItem);
+            
         }
 
         public override void OnJoinedRoom()

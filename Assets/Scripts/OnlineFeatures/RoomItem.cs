@@ -7,10 +7,11 @@ namespace OnlineFeatures
 {
     public class RoomItem : MonoBehaviour
     {
+        [SerializeField] private GameObject roomList;
+        [SerializeField] GameObject roomItemPrefab;
         private TMP_Text _roomNameText;
         private Button _roomButton;
         LobbyManager _lobbyManager;
-
 
         private void Awake()
         {

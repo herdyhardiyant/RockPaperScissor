@@ -9,9 +9,7 @@ namespace OnlineFeatures
     {
         [SerializeField] private TMP_Text usernameInput;
         [SerializeField] private TMP_Text feedbackText;
-    
-        //TODO Click Connect
-    
+
         public void Connect()
         {
             //Check if username is empty

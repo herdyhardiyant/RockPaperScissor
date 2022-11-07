@@ -1,18 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using Photon.Pun;
+using UI;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class RoomManager : MonoBehaviour
+namespace OnlineFeatures
 {
-    // Start is called before the first frame update
-    void Start()
+    public class RoomManager : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private Button startGameButton;
+        [SerializeField] private Button leaveRoomButton;
+        [SerializeField] private LobbyUI lobbyUI;
 
-    // Update is called once per frame
-    void Update()
-    {
+        private void Awake()
+        {
+            leaveRoomButton.onClick.AddListener(LeaveRoom);
+            startGameButton.onClick.AddListener(StartGame);
+        }
+
+        private void LeaveRoom()
+        {
+            PhotonNetwork.LeaveRoom();
+            lobbyUI.HideRoomPanel();
+        }
+        
+        private void StartGame()
+        {
+            if (PhotonNetwork.IsMasterClient)
+                print("Starting game");
+                // PhotonNetwork.LoadLevel();
+        }
         
     }
 }

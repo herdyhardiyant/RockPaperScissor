@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 namespace OnlineFeatures
 {
-    public class RoomItem : MonoBehaviour
+    public class RoomButtonManipulator : MonoBehaviour
     {
-        [SerializeField] private GameObject roomList;
-        [SerializeField] GameObject roomItemPrefab;
+       
         private TMP_Text _roomNameText;
         private Button _roomButton;
-        LobbyManager _lobbyManager;
+        private LobbyManager _lobbyManager;
 
         private void Awake()
         {
@@ -24,11 +23,8 @@ namespace OnlineFeatures
             _lobbyManager = manager;
             _roomNameText.text = roomName;
             _roomButton.onClick.AddListener(() => _lobbyManager.JoinRoom(_roomNameText.text));
-        }
+            gameObject.name = roomName;
 
-        public void OnClick()
-        {
-            _lobbyManager.JoinRoom(_roomNameText.text);
         }
     }
 }

@@ -476,7 +476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000080549}
+  m_AnchoredPosition: {x: 0, y: 0.00025661022}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &60077552
@@ -886,7 +886,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1965887055}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99998987
+  m_Size: 0.99947995
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1486,6 +1486,7 @@ MonoBehaviour:
   roomNameText: {fileID: 624415657}
   roomListUI: {fileID: 1972479777}
   roomPrefab: {fileID: 5974988542323956562, guid: d146b3a4a8520624a9470e532a87ad31, type: 3}
+  roomNameInput: {fileID: 24479988}
 --- !u!114 &838862968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1500,7 +1501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerItemPrefab: {fileID: 6841197122514987635, guid: ddbfcf220f0fe8744ad20fbb9a32bc7c, type: 3}
   playerListObject: {fileID: 60077550}
-  startGameButton: {fileID: 0}
+  startGameButton: {fileID: 1080347993}
 --- !u!1 &888281627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,11 +1674,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6166432603962033818, guid: cc074e9780f17ab478f931cab015511c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166432603962033818, guid: cc074e9780f17ab478f931cab015511c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1650926029}
     - target: {fileID: 6166432603962033818, guid: cc074e9780f17ab478f931cab015511c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 838862967}
+    - target: {fileID: 6166432603962033818, guid: cc074e9780f17ab478f931cab015511c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166432603962033818, guid: cc074e9780f17ab478f931cab015511c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6166432603962033818, guid: cc074e9780f17ab478f931cab015511c, type: 3}
@@ -1685,11 +1698,23 @@ PrefabInstance:
       value: CreateRoom
       objectReference: {fileID: 0}
     - target: {fileID: 6166432603962033818, guid: cc074e9780f17ab478f931cab015511c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ResetCreateRoomUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166432603962033818, guid: cc074e9780f17ab478f931cab015511c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LobbyManager, Assembly-CSharp
+      value: OnlineFeatures.LobbyManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166432603962033818, guid: cc074e9780f17ab478f931cab015511c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UI.LobbyUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6166432603962033818, guid: cc074e9780f17ab478f931cab015511c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166432603962033818, guid: cc074e9780f17ab478f931cab015511c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6166432604773877478, guid: cc074e9780f17ab478f931cab015511c, type: 3}
@@ -2071,6 +2096,7 @@ MonoBehaviour:
   startGameButton: {fileID: 1080347993}
   leaveRoomButton: {fileID: 57866822}
   lobbyUI: {fileID: 838862967}
+  roomUI: {fileID: 838862968}
 --- !u!4 &1337500661
 Transform:
   m_ObjectHideFlags: 0
@@ -2299,7 +2325,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newRoomInputField: {fileID: 24479988}
   lobbyUI: {fileID: 838862967}
-  roomUI: {fileID: 838862968}
 --- !u!1 &1692666099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2463,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.99998987}
+  m_AnchorMax: {x: 1, y: 0.99947995}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

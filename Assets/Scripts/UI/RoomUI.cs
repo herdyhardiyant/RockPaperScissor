@@ -18,7 +18,6 @@ namespace UI
         
         public void SetStartGameButtonActive(bool isActive)
         {
-            startGameButton.gameObject.SetActive(isActive);
             startGameButton.interactable = isActive;
         }
         

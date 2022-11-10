@@ -7,7 +7,7 @@ Library: lib_burst_generated
 --float-precision=Standard
 --format=Coff
 --disable-warnings=BC1370
---compilation-defines=UNITY_2021_3_9
+--compilation-defines=UNITY_2021_3_12
 --compilation-defines=UNITY_2021_3
 --compilation-defines=UNITY_2021
 --compilation-defines=UNITY_5_3_OR_NEWER
@@ -93,6 +93,7 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_NETWORK
 --compilation-defines=ENABLE_NVIDIA
 --compilation-defines=ENABLE_CRUNCH_TEXTURE_COMPRESSION
+--compilation-defines=ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT
 --compilation-defines=ENABLE_OUT_OF_PROCESS_CRASH_HANDLER
 --compilation-defines=ENABLE_CLUSTER_SYNC
 --compilation-defines=ENABLE_CLUSTERINPUT
@@ -110,6 +111,7 @@ Library: lib_burst_generated
 --compilation-defines=DEBUG
 --compilation-defines=TRACE
 --compilation-defines=UNITY_ASSERTIONS
+--compilation-defines=UNITY_PRO_LICENSE
 --compilation-defines=ENABLE_CUSTOM_RENDER_TEXTURE
 --compilation-defines=ENABLE_DIRECTOR
 --compilation-defines=ENABLE_LOCALIZATION
@@ -179,6 +181,7 @@ Library: lib_burst_generated
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
 --method=Unity.Burst.Intrinsics.X86, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::DoSetCSRTrampoline(System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--da352d92cabf024fc9986011d52a4537
 --method=Unity.Burst.Intrinsics.X86, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::DoGetCSRTrampoline()--89425a97f3f500fa810ad03f0c382542
+--method=UnityEngine.U2D.Animation.BurstedSpriteSkinUtilities, Unity.2D.Animation.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::ValidateBoneWeights(Unity.Collections.NativeSlice`1[[UnityEngine.BoneWeight, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--5bf0a813706ef9287fcaa55dd0ccb876
 --method=Unity.Jobs.IJobExtensions+JobStruct`1[[UnityEngine.U2D.SpriteShapeGenerator, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEngine.U2D.SpriteShapeGenerator&, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--a185c62eba2497c95197140e5282b27a
 --platform=Windows
 --backend=burst-llvm-11
@@ -188,7 +191,7 @@ Library: lib_burst_generated
 --float-precision=Standard
 --format=Coff
 --disable-warnings=BC1370
---compilation-defines=UNITY_2021_3_9
+--compilation-defines=UNITY_2021_3_12
 --compilation-defines=UNITY_2021_3
 --compilation-defines=UNITY_2021
 --compilation-defines=UNITY_5_3_OR_NEWER
@@ -274,6 +277,7 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_NETWORK
 --compilation-defines=ENABLE_NVIDIA
 --compilation-defines=ENABLE_CRUNCH_TEXTURE_COMPRESSION
+--compilation-defines=ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT
 --compilation-defines=ENABLE_OUT_OF_PROCESS_CRASH_HANDLER
 --compilation-defines=ENABLE_CLUSTER_SYNC
 --compilation-defines=ENABLE_CLUSTERINPUT
@@ -291,6 +295,7 @@ Library: lib_burst_generated
 --compilation-defines=DEBUG
 --compilation-defines=TRACE
 --compilation-defines=UNITY_ASSERTIONS
+--compilation-defines=UNITY_PRO_LICENSE
 --compilation-defines=ENABLE_CUSTOM_RENDER_TEXTURE
 --compilation-defines=ENABLE_DIRECTOR
 --compilation-defines=ENABLE_LOCALIZATION
@@ -360,5 +365,6 @@ Library: lib_burst_generated
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
 --method=Unity.Burst.Intrinsics.X86, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::DoSetCSRTrampoline(System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--da352d92cabf024fc9986011d52a4537
 --method=Unity.Burst.Intrinsics.X86, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::DoGetCSRTrampoline()--89425a97f3f500fa810ad03f0c382542
+--method=UnityEngine.U2D.Animation.BurstedSpriteSkinUtilities, Unity.2D.Animation.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::ValidateBoneWeights(Unity.Collections.NativeSlice`1[[UnityEngine.BoneWeight, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--5bf0a813706ef9287fcaa55dd0ccb876
 --method=Unity.Jobs.IJobExtensions+JobStruct`1[[UnityEngine.U2D.SpriteShapeGenerator, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEngine.U2D.SpriteShapeGenerator&, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--a185c62eba2497c95197140e5282b27a
 

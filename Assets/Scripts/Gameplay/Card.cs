@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ namespace Gameplay
     public class Card : MonoBehaviour
     {
         public Attack AttackValue;
-        public Player player;
+        public CardPlayer cardPlayer;
         public Transform atkPosition;
         public float tweenTime = 0.5f;
         private Vector2 startPosition;
@@ -19,20 +20,24 @@ namespace Gameplay
         private Tweener animationTweener;
         private Image _cardImage;
 
+        private void Start()
+        {
+            startScale = transform.localScale;
+        }
 
         public void OnClick()
         {
             if (_button.enabled == false) return;
             startPosition = transform.position;
-            player.SetChosenCard(this);
+            cardPlayer.SetChosenCard(this);
+            animationTweener = _cardImage.transform.DOScale(startScale * 1.5f, tweenTime);
         }
 
         public void SelectCardSilently()
         {
             if (_button.enabled == false) return;
             startPosition = transform.position;
-            player.SetChosenCard(this);
-
+            cardPlayer.SetChosenCard(this);
         }
 
         public void SetClickable(bool clickable)
@@ -45,6 +50,8 @@ namespace Gameplay
             Transform cardTransform = transform;
             cardTransform.position = startPosition;
             _cardImage.color = startColor;
+            animationTweener = _cardImage.transform.DOScale(startScale, tweenTime);
+
         }
 
         private void Awake()
@@ -64,7 +71,10 @@ namespace Gameplay
 
         public void AnimateAttack()
         {
-            animationTweener = transform.DOMove(atkPosition.position, tweenTime).SetLoops(2, LoopType.Yoyo).SetDelay(0.1f);
+            animationTweener = transform.DOMove(atkPosition.position, tweenTime).SetLoops(2, LoopType.Yoyo)
+                .SetDelay(0.1f);
+            animationTweener = _cardImage.transform.DOScale(startScale, tweenTime);
+
         }
 
         public bool IsAnimating()

@@ -6,12 +6,12 @@ namespace Gameplay
     public class HealthBar : MonoBehaviour
     {
     
-        [SerializeField] private Player player;
+        [SerializeField] private CardPlayer cardPlayer;
         [SerializeField] private Image _healthFillImage;
 
         private void Update()
         {
-            _healthFillImage.fillAmount = player.Health / player.MaxHealth;
+            _healthFillImage.fillAmount = cardPlayer.Health / cardPlayer.MaxHealth;
         }
     
     }

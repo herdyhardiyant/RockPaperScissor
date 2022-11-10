@@ -5,9 +5,10 @@ namespace Gameplay
 {
     public class Bot : MonoBehaviour
     {
-    
+        [SerializeField] private CardGameManager cardGameManager;
         private Card []_cards;
-    
+        
+        
         private void Awake()
         {
             _cards = GetComponentsInChildren<Card>();
@@ -17,6 +18,12 @@ namespace Gameplay
     
         void Update()
         {
+            if (cardGameManager.IsOnline)
+            {
+                this.enabled = false;
+                return;
+            }
+            
             if (_timer < 0.5)
             {
                 _timer += Time.deltaTime;

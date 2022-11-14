@@ -20,6 +20,8 @@ namespace Gameplay
         private Tweener animationTweener;
         private Image _cardImage;
 
+        
+        
         private void Start()
         {
             startScale = transform.localScale;
@@ -62,6 +64,8 @@ namespace Gameplay
             startPosition = cardTransform.position;
             startScale = cardTransform.localScale;
             startColor = _cardImage.color;
+
+            var button = GetComponent<Button>();
         }
 
         public void AnimateDamage()

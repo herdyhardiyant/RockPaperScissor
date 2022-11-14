@@ -21,8 +21,8 @@ namespace Gameplay
         }
 
         public bool IsOnline => _isOnline;
-        
         private static bool _isOnline;
+        
         public CardPlayer player1;
         public CardPlayer player2;
         public TMP_Text WinnerText;

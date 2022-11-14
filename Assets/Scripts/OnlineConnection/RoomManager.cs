@@ -95,9 +95,9 @@ namespace OnlineConnection
             PhotonNetwork.JoinLobby();
             
             // TODO Fix room bug ui
-            
-            if(PhotonNetwork.CountOfRooms == 0)
-                lobbyUI.ClearRoomButtonListUI();
+            //
+            // if(PhotonNetwork.CountOfRooms == 0)
+            //     lobbyUI.ClearRoomButtonListUI();
         }
         
         private void StartGame()

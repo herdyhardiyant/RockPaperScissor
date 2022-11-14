@@ -46,8 +46,9 @@ namespace OnlineConnection
                 {
                     print(card.name);
                     print("Click");
-                    var button = card.GetComponent<Button>();
-                    button.onClick.Invoke();
+                    card.OnClick();
+                    // var button = card.GetComponent<Button>();
+                    // button.onClick.Invoke();
                     break;
                 }
             }

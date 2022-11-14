@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 322834768}
   - component: {fileID: 322834771}
   m_Layer: 5
-  m_Name: Rock
+  m_Name: P1 Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -920,7 +920,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 322834771}
-        m_TargetAssemblyTypeName: Card, Assembly-CSharp
+        m_TargetAssemblyTypeName: Gameplay.Card, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1852,7 +1852,7 @@ GameObject:
   - component: {fileID: 929852953}
   - component: {fileID: 929852956}
   m_Layer: 5
-  m_Name: Rock
+  m_Name: P2 Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2202,7 +2202,7 @@ GameObject:
   - component: {fileID: 1300354281}
   - component: {fileID: 1300354280}
   m_Layer: 5
-  m_Name: Paper
+  m_Name: P2 Paper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2341,7 +2341,7 @@ GameObject:
   - component: {fileID: 1313347403}
   - component: {fileID: 1313347406}
   m_Layer: 5
-  m_Name: Scissor
+  m_Name: P2 Scissor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3581,7 +3581,7 @@ GameObject:
   - component: {fileID: 1844472516}
   - component: {fileID: 1844472519}
   m_Layer: 5
-  m_Name: Paper
+  m_Name: P1 Paper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3653,7 +3653,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1844472519}
-        m_TargetAssemblyTypeName: Card, Assembly-CSharp
+        m_TargetAssemblyTypeName: Gameplay.Card, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -4139,7 +4139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7613472121599444585, guid: b80f14bd8cc99384db5926c621400314, type: 3}
       propertyPath: m_Name
-      value: Scissor
+      value: P1 Scissor
       objectReference: {fileID: 0}
     - target: {fileID: 7613472121599444587, guid: b80f14bd8cc99384db5926c621400314, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4163,7 +4163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7613472121599444587, guid: b80f14bd8cc99384db5926c621400314, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Card, Assembly-CSharp
+      value: Gameplay.Card, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7613472121599444587, guid: b80f14bd8cc99384db5926c621400314, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

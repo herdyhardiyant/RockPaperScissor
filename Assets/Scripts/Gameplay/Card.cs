@@ -20,8 +20,8 @@ namespace Gameplay
         private Tweener animationTweener;
         private Image _cardImage;
 
-        
-        
+
+
         private void Start()
         {
             startScale = transform.localScale;
@@ -32,7 +32,16 @@ namespace Gameplay
             if (_button.enabled == false) return;
             startPosition = transform.position;
             cardPlayer.SetChosenCard(this);
+        }
+
+        public void SetSelectedCardBig()
+        {
             animationTweener = _cardImage.transform.DOScale(startScale * 1.5f, tweenTime);
+        }
+        
+        public void SetSelectedCardSmall()
+        {
+            animationTweener = _cardImage.transform.DOScale(startScale, tweenTime);
         }
 
         public void SelectCardSilently()
@@ -52,7 +61,8 @@ namespace Gameplay
             Transform cardTransform = transform;
             cardTransform.position = startPosition;
             _cardImage.color = startColor;
-            animationTweener = _cardImage.transform.DOScale(startScale, tweenTime);
+            
+            SetSelectedCardSmall();
 
         }
 

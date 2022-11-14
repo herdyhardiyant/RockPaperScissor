@@ -39,7 +39,6 @@ namespace OnlineConnection
         [PunRPC]
         private void RemoteClickButtonRPC(int value)
         {
-           // TODO Fix Card does not click on other player
             foreach (var card in cards)
             {
                 if(card.AttackValue == (Attack)value)

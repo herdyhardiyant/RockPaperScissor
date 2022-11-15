@@ -49,8 +49,7 @@ namespace OnlineConnection
             base.OnPlayerLeftRoom(otherPlayer);
             UpdatePlayerList();
             UpdateStartButton();
-           
-            // Get current room
+            
             Room currentRoom = PhotonNetwork.CurrentRoom;
             
             print(currentRoom.Name);
@@ -91,12 +90,12 @@ namespace OnlineConnection
             roomUI.SetStartGameButtonActive(isButtonActive);
         }
         
-        async private void LeaveRoom()
+        private void LeaveRoom()
         {
             PhotonNetwork.LeaveRoom();
             lobbyUI.HideRoomPanel();
             lobbyUI.ResetCreateRoomUI();
-         
+            lobbyUI.SetFeedbackText("Leave room and returning to master server...");
         }
         
         private void StartGame()
@@ -105,7 +104,6 @@ namespace OnlineConnection
             {
                 PhotonNetwork.AutomaticallySyncScene = true;
                 SceneManager.LoadScene("Gameplay");
-                // TODO 26 53:06
             }
         }
         

@@ -15,17 +15,7 @@ namespace OnlineConnection
         [SerializeField] private LobbyUI lobbyUI;
 
         List<RoomButton> _roomButtonList = new List<RoomButton>();
-
-        private int currentRoomCount = 0;
         
-        private void Update()
-        {
-            if(currentRoomCount != PhotonNetwork.CountOfRooms)
-            {
-                currentRoomCount = PhotonNetwork.CountOfRooms;
-            }
-        }
-
         private void Awake()
         {
            var isJoined = PhotonNetwork.JoinLobby();
@@ -34,8 +24,19 @@ namespace OnlineConnection
 
         public override void OnConnectedToMaster()
         {
+            lobbyUI.SetFeedbackText("Connected to master server.");
+
           var isJoined =   PhotonNetwork.JoinLobby();
           print("isJoined: " + isJoined);
+
+          if (isJoined)
+          {
+              lobbyUI.SetFeedbackText("Joined lobby.");
+          }
+          else
+          {
+             lobbyUI.SetFeedbackText("Failed to join lobby.");
+          }
 
         }
 
@@ -59,15 +60,11 @@ namespace OnlineConnection
             lobbyUI.SetFeedbackText("Creating room" + newRoomInputField.text);
             CreateRoom(newRoomInputField.text);
         }
-
-        public override void OnLobbyStatisticsUpdate(List<TypedLobbyInfo> lobbyStatistics)
-        {
-            print("Lobby stats updated");
-        }
         
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
-            print("Room list updated");
+            // print("Room list updated");
+            
             lobbyUI.ClearRoomButtonListUI();
             
             foreach (RoomInfo room in roomList)
@@ -81,19 +78,12 @@ namespace OnlineConnection
             }
           
         }
-        
-
-        public override void OnJoinedLobby()
-        {
-            base.OnJoinedLobby();
-            print("Joined lobby");
-        }
 
         public override void OnCreatedRoom()
         {
             base.OnCreatedRoom();
             var createdRoomName = PhotonNetwork.CurrentRoom.Name;
-            print("Created Room: " + createdRoomName);
+            // print("Created Room: " + createdRoomName);
             lobbyUI.SetFeedbackText("Created Room: " + createdRoomName);
         }
 
@@ -107,16 +97,6 @@ namespace OnlineConnection
         public void JoinRoom(string roomName)
         {
             PhotonNetwork.JoinRoom(roomName);
-        }
-
-        public override void OnEnable()
-        {
-            base.OnEnable();
-        }
-        
-        public override void OnDisable()
-        {
-            base.OnDisable();
         }
     }
 }

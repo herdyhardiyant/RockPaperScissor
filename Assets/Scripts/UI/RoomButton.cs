@@ -1,4 +1,5 @@
 using OnlineConnection;
+using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,13 +19,19 @@ namespace UI
              _roomNameText = GetComponentInChildren<TMP_Text>();
         }
 
-        public void Set(LobbyManager manager, string roomName)
+        public void Set(LobbyManager manager, RoomInfo createdRoomInfo)
         {
+            var isRoomFull = createdRoomInfo.PlayerCount == createdRoomInfo.MaxPlayers;
             _lobbyManager = manager;
-            _roomNameText.text = roomName;
-            _roomButton.onClick.AddListener(() => _lobbyManager.JoinRoom(_roomNameText.text));
-            gameObject.name = roomName;
-
+            _roomNameText.text = createdRoomInfo.Name + " (" + createdRoomInfo.PlayerCount + "/" + createdRoomInfo.MaxPlayers + ")";
+            _roomButton.onClick.AddListener(() => _lobbyManager.JoinRoom(createdRoomInfo.Name));
+            gameObject.name = createdRoomInfo.Name;
+            _roomButton.interactable = !isRoomFull;
         }
+        
+        
+        
+        
+        
     }
 }

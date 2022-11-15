@@ -8,36 +8,34 @@ using UnityEngine;
 
 namespace OnlineConnection
 {
-
     public class LobbyManager : MonoBehaviourPunCallbacks
     {
         [SerializeField] TMP_InputField newRoomInputField;
         [SerializeField] private LobbyUI lobbyUI;
 
         List<RoomButton> _roomButtonList = new List<RoomButton>();
-        
+
         private void Awake()
         {
-           var isJoined = PhotonNetwork.JoinLobby();
-           print("isJoined: " + isJoined);
+            var isJoined = PhotonNetwork.JoinLobby();
+            print("isJoined: " + isJoined);
         }
 
         public override void OnConnectedToMaster()
         {
             lobbyUI.SetFeedbackText("Connected to master server.");
 
-          var isJoined =   PhotonNetwork.JoinLobby();
-          print("isJoined: " + isJoined);
+            var isJoined = PhotonNetwork.JoinLobby();
+            print("isJoined: " + isJoined);
 
-          if (isJoined)
-          {
-              lobbyUI.SetFeedbackText("Joined lobby.");
-          }
-          else
-          {
-             lobbyUI.SetFeedbackText("Failed to join lobby.");
-          }
-
+            if (isJoined)
+            {
+                lobbyUI.SetFeedbackText("Joined lobby.");
+            }
+            else
+            {
+                lobbyUI.SetFeedbackText("Failed to join lobby.");
+            }
         }
 
         public void CreateRoom()
@@ -58,15 +56,15 @@ namespace OnlineConnection
             roomOptions.MaxPlayers = 2;
             PhotonNetwork.CreateRoom(newRoomInputField.text, roomOptions);
             lobbyUI.SetFeedbackText("Creating room" + newRoomInputField.text);
-            CreateRoom(newRoomInputField.text);
+            // CreateRoomButton(roomOptions);
         }
-        
+
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
             // print("Room list updated");
-            
+
             lobbyUI.ClearRoomButtonListUI();
-            
+
             foreach (RoomInfo room in roomList)
             {
                 if (room.PlayerCount == 0)
@@ -74,9 +72,9 @@ namespace OnlineConnection
                     room.RemovedFromList = true;
                     return;
                 }
-                CreateRoom(room.Name);
+
+                CreateRoomButton(room);
             }
-          
         }
 
         public override void OnCreatedRoom()
@@ -87,11 +85,11 @@ namespace OnlineConnection
             lobbyUI.SetFeedbackText("Created Room: " + createdRoomName);
         }
 
-        private void CreateRoom(string createdRoomName)
+        private void CreateRoomButton(RoomInfo createdRoomOptions)
         {
             var newRoomItemObject = lobbyUI.AddRoomOnRoomListUI();
             RoomButton roomButton = newRoomItemObject.GetComponent<RoomButton>();
-            roomButton.Set(this, createdRoomName);
+            roomButton.Set(this, createdRoomOptions);
         }
 
         public void JoinRoom(string roomName)

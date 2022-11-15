@@ -2,6 +2,7 @@ using System;
 using OnlineConnection;
 using Photon.Pun;
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -20,16 +21,16 @@ namespace Gameplay
             GameOver
         }
 
+        [SerializeField] private GameplayUIManipulator gameplayUIManipulator;
+        
         public bool IsOnline => _isOnline;
         private static bool _isOnline;
         
         public CardPlayer player1;
         public CardPlayer player2;
-        public TMP_Text WinnerText;
         public GameObject netPlayerPrefab;
         private GameState _gameState;
         private CardPlayer _damagedCardPlayer;
-        [SerializeField] private GameObject _restartButton;
         
         public void RestartGame()
         {
@@ -39,8 +40,6 @@ namespace Gameplay
         private void Awake()
         {
             _gameState = GameState.NetPlayerInit;
-            WinnerText.gameObject.SetActive(false);
-            _restartButton.SetActive(false);
             _isOnline = true;
         }
 
@@ -141,9 +140,7 @@ namespace Gameplay
                     break;
 
                 case GameState.GameOver:
-                    WinnerText.text = GetWinner().name + " wins!";
-                    _restartButton.SetActive(true);
-                    WinnerText.gameObject.SetActive(true);
+                    gameplayUIManipulator.SetWinner(GetWinner().name);
                     break;
             }
         }

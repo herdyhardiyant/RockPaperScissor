@@ -27,6 +27,7 @@ namespace OnlineConnection
         
         public override void OnJoinedRoom()
         {
+            base.OnJoinedRoom();
             lobbyUI.SetFeedbackText("Joined Room: " + PhotonNetwork.CurrentRoom.Name);
             lobbyUI.ShowJoinedRoomPanel(PhotonNetwork.CurrentRoom.Name);
 
@@ -37,6 +38,7 @@ namespace OnlineConnection
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
+            base.OnPlayerEnteredRoom(newPlayer);
             UpdatePlayerList();
             UpdateStartButton();
 
@@ -44,6 +46,7 @@ namespace OnlineConnection
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
         {
+            base.OnPlayerLeftRoom(otherPlayer);
             UpdatePlayerList();
             UpdateStartButton();
            
@@ -78,6 +81,7 @@ namespace OnlineConnection
         
         public override void OnMasterClientSwitched(Player newMasterClient)
         {
+            base.OnMasterClientSwitched(newMasterClient);
             UpdateStartButton();
         }
 
@@ -87,17 +91,12 @@ namespace OnlineConnection
             roomUI.SetStartGameButtonActive(isButtonActive);
         }
         
-        private void LeaveRoom()
+        async private void LeaveRoom()
         {
             PhotonNetwork.LeaveRoom();
             lobbyUI.HideRoomPanel();
             lobbyUI.ResetCreateRoomUI();
-            PhotonNetwork.JoinLobby();
-            
-            // TODO Fix room bug ui
-            //
-            // if(PhotonNetwork.CountOfRooms == 0)
-            //     lobbyUI.ClearRoomButtonListUI();
+         
         }
         
         private void StartGame()

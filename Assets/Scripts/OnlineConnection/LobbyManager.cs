@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
@@ -14,11 +15,28 @@ namespace OnlineConnection
         [SerializeField] private LobbyUI lobbyUI;
 
         List<RoomButton> _roomButtonList = new List<RoomButton>();
-        
 
-        private void Start()
+        private int currentRoomCount = 0;
+        
+        private void Update()
         {
-            PhotonNetwork.JoinLobby();
+            if(currentRoomCount != PhotonNetwork.CountOfRooms)
+            {
+                currentRoomCount = PhotonNetwork.CountOfRooms;
+            }
+        }
+
+        private void Awake()
+        {
+           var isJoined = PhotonNetwork.JoinLobby();
+           print("isJoined: " + isJoined);
+        }
+
+        public override void OnConnectedToMaster()
+        {
+          var isJoined =   PhotonNetwork.JoinLobby();
+          print("isJoined: " + isJoined);
+
         }
 
         public void CreateRoom()
@@ -51,15 +69,29 @@ namespace OnlineConnection
         {
             print("Room list updated");
             lobbyUI.ClearRoomButtonListUI();
-
+            
             foreach (RoomInfo room in roomList)
             {
+                if (room.PlayerCount == 0)
+                {
+                    room.RemovedFromList = true;
+                    return;
+                }
                 CreateRoom(room.Name);
             }
+          
+        }
+        
+
+        public override void OnJoinedLobby()
+        {
+            base.OnJoinedLobby();
+            print("Joined lobby");
         }
 
         public override void OnCreatedRoom()
         {
+            base.OnCreatedRoom();
             var createdRoomName = PhotonNetwork.CurrentRoom.Name;
             print("Created Room: " + createdRoomName);
             lobbyUI.SetFeedbackText("Created Room: " + createdRoomName);
@@ -75,6 +107,16 @@ namespace OnlineConnection
         public void JoinRoom(string roomName)
         {
             PhotonNetwork.JoinRoom(roomName);
+        }
+
+        public override void OnEnable()
+        {
+            base.OnEnable();
+        }
+        
+        public override void OnDisable()
+        {
+            base.OnDisable();
         }
     }
 }

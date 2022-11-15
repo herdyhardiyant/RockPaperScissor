@@ -16,7 +16,8 @@ namespace UI
         [SerializeField] GameObject roomPrefab;
         List<GameObject> _roomButtonList = new List<GameObject>();
         [SerializeField] private TMP_InputField roomNameInput;
-
+        
+        
 
         public GameObject AddRoomOnRoomListUI()
         {
@@ -27,6 +28,7 @@ namespace UI
 
         public void ClearRoomButtonListUI()
         {
+            print("Clearing room list");
             foreach (var item in _roomButtonList)
             {
                 Destroy(item.gameObject);

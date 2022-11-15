@@ -49,17 +49,13 @@ namespace Gameplay
             
             var netPlayerGameObject =
                 PhotonNetwork.Instantiate(netPlayerPrefab.name, Vector3.zero, Quaternion.identity);
-            
-            
+
             if (!netPlayerGameObject)
             {
                 _gameState = GameState.ChooseAttack;
                 _isOnline = false;
                 print("No net player");
-                return;
             }
-            
-            // var netPlayer = netPlayerGameObject.GetComponent<NetPlayer>();
 
         }
 

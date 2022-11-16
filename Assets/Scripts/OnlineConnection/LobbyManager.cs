@@ -26,11 +26,10 @@ namespace OnlineConnection
             lobbyUI.SetFeedbackText("Connected to master server.");
 
             var isJoined = PhotonNetwork.JoinLobby();
-            print("isJoined: " + isJoined);
 
             if (isJoined)
             {
-                lobbyUI.SetFeedbackText("Joined lobby.");
+                lobbyUI.SetFeedbackText("Successfully joined lobby.");
             }
             else
             {

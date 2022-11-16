@@ -290,3 +290,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: {fileID: 6841197121359161205}
+  playerAvatarImage: {fileID: 6841197121597509433}

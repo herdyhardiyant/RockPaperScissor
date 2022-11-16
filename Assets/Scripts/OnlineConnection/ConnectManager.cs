@@ -1,3 +1,5 @@
+using ExitGames.Client.Photon;
+using MultiplayerFeatures;
 using Photon.Pun;
 using TMPro;
 using UnityEngine;
@@ -9,7 +11,8 @@ namespace OnlineConnection
     {
         [SerializeField] private TMP_Text usernameInput;
         [SerializeField] private TMP_Text feedbackText;
-
+        [SerializeField] private AvatarSelection avatarSelection;
+        
         public void Connect()
         {
             //Check if username is empty
@@ -36,13 +39,25 @@ namespace OnlineConnection
             PhotonNetwork.AutomaticallySyncScene = true;
             PhotonNetwork.NickName = usernameInput.text;
             PhotonNetwork.ConnectUsingSettings();
+
+            var playerProperties = new Hashtable();
+            
+            playerProperties.Add(AvatarSelection.SelectedAvatarIndexPropertyName, avatarSelection.SelectedAvatarIndex);
+            
+           var isPropertySet =  PhotonNetwork.LocalPlayer.SetCustomProperties(playerProperties);
+
+           print("Is property set: " + isPropertySet);
+           
             feedbackText.text = "Connecting to server...";
         }
-
-        public override void OnConnectedToMaster()
+    
+        
+        
+         public override void OnConnectedToMaster()
         {
             feedbackText.text = "Connected to server";
             SceneManager.LoadScene("Lobby");
+            
         }
 
     }

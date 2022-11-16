@@ -1,6 +1,8 @@
+using MultiplayerFeatures;
 using Photon.Pun;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -8,7 +10,8 @@ namespace UI
     {
         
         [SerializeField] TMP_Text playerName;
-
+        [SerializeField] Image playerAvatarImage;
+        
         public void Set(Photon.Realtime.Player player)
         {
             playerName.text = player.NickName;
@@ -17,6 +20,11 @@ namespace UI
             {
                 playerName.text += " (Master)";
             }
+            
+            var avatar = (int) PhotonNetwork.LocalPlayer.CustomProperties[AvatarSelection.SelectedAvatarIndexPropertyName];
+            playerAvatarImage.sprite = AvatarSpritesCollection.GetAvatar(avatar);
+            playerAvatarImage.SetNativeSize();
+            playerAvatarImage.transform.localScale = new Vector3(3,3,1);
         }
         
     }

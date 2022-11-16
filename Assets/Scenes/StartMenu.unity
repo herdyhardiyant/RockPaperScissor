@@ -2039,15 +2039,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatarImage: {fileID: 1271993127}
-  avatars:
-  - {fileID: 21300000, guid: d6f54c3c54037074197cf5e69e7a7697, type: 3}
-  - {fileID: 21300000, guid: a5722ccfadbda664fbcca689ef3b5a12, type: 3}
-  - {fileID: 21300000, guid: 1d827540e6ce3044e98ee2d3fcfef220, type: 3}
-  - {fileID: 21300000, guid: d68fab2427cf04b4e8a1e9e0b60b7163, type: 3}
-  - {fileID: 21300000, guid: 4534dc39155420d438e584a6e5e97f50, type: 3}
-  - {fileID: 21300000, guid: 2a00ca7a6fff7f24b9cdb474714ee88c, type: 3}
-  - {fileID: 21300000, guid: 2e395f5fdc586a14ba5463deb13a86a8, type: 3}
-  - {fileID: 21300000, guid: d010eb46c15a6624c9bff687e74fef1d, type: 3}
   changeAvatarButton: {fileID: 1782576937}
 --- !u!1 &627376477
 GameObject:

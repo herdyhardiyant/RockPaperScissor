@@ -21,7 +21,7 @@ namespace UI
                 playerName.text += " (Master)";
             }
             
-            var avatar = (int) PhotonNetwork.LocalPlayer.CustomProperties[AvatarSelection.SelectedAvatarIndexPropertyName];
+            var avatar = (int) player.CustomProperties[AvatarSelection.SelectedAvatarIndexPropertyName];
             playerAvatarImage.sprite = AvatarSpritesCollection.GetAvatar(avatar);
             playerAvatarImage.SetNativeSize();
             playerAvatarImage.transform.localScale = new Vector3(3,3,1);

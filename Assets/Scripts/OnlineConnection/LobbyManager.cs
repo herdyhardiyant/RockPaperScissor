@@ -5,6 +5,7 @@ using Photon.Realtime;
 using TMPro;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace OnlineConnection
 {
@@ -19,6 +20,12 @@ namespace OnlineConnection
         {
             var isJoined = PhotonNetwork.JoinLobby();
             print("isJoined: " + isJoined);
+        }
+        
+        public void Quit()
+        {
+            PhotonNetwork.Disconnect();
+            SceneManager.LoadScene("Scenes/StartMenu");
         }
 
         public override void OnConnectedToMaster()

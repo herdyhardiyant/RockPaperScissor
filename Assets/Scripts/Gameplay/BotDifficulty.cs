@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public static class BotDifficulty
+    public class BotDifficulty
     {
         
         public enum Difficulty
@@ -16,16 +16,16 @@ namespace Gameplay
 
         public static float Health => _health;
         public static float AttackDamage => _attackDamage;
-        public static Difficulty difficulty => _difficulty;
+        public static Difficulty SelectedDifficulty => _selectedDifficulty;
 
         private static float _health;
         private static float _attackDamage;
         
-        private static Difficulty _difficulty = Difficulty.Easy;
+        private static Difficulty _selectedDifficulty = Difficulty.Easy;
 
         public static void SetDifficulty(Difficulty difficulty)
         {
-            _difficulty = difficulty;
+            _selectedDifficulty = difficulty;
             switch (difficulty)
             {
                 case Difficulty.Easy:

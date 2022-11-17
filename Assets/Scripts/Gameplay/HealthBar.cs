@@ -11,9 +11,6 @@ namespace Gameplay
 
         private void Update()
         {
-            print(cardPlayer.name);
-            print(cardPlayer.Health);
-            print("Max Health: " + cardPlayer.MaxHealth);
             _healthFillImage.fillAmount = cardPlayer.Health / cardPlayer.MaxHealth;
         }
     

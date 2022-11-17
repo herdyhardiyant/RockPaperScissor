@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
+  m_Name: RemoteConfigDataStoreAsset
+  m_EditorClassIdentifier: 
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"d78f0dae-75f7-4452-a6cd-467a1520a160\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"difficulty\",\r\n      \"type\": \"int\",\r\n     
+    \"value\": 0\r\n    }\r\n  }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"d78f0dae-75f7-4452-a6cd-467a1520a160\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"difficulty\",\r\n      \"type\": \"int\",\r\n     
+    \"value\": 0\r\n    }\r\n  }\r\n]"
+  _environments: "[\r\n  {\r\n    \"projectId\": \"c6871819-f0a2-4e15-8174-2be1c20aabe5\",\r\n   
+    \"name\": \"production\",\r\n    \"id\": \"3fa76a5f-501e-4669-b56f-ee53509d0490\",\r\n   
+    \"isDefault\": true,\r\n    \"createdAt\": \"2022-11-17T06:33:42Z\",\r\n    \"updatedAt\":
+    \"2022-11-17T06:33:42Z\"\r\n  }\r\n]"

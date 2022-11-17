@@ -26,7 +26,7 @@ namespace Gameplay
             var bot = GetComponent<Bot>();
             if (bot)
             {
-                ApplyBotDifficulty();
+                SetBotDifficulty();
             }
             
             _currentHealth = _maxHealth;
@@ -34,12 +34,25 @@ namespace Gameplay
             print(healthText.text);
         }
 
-        private void ApplyBotDifficulty()
+        public void SetBotDifficulty()
         {
-            _maxHealth = BotDifficulty.Health;
-            _attackDamage = BotDifficulty.AttackDamage;
+            switch (Bot.SelectedDifficulty)
+            {
+                case Bot.Difficulty.Easy:
+                    _maxHealth = 80;
+                    _attackDamage = -10;
+                    break;
+                case Bot.Difficulty.Medium:
+                    _maxHealth = 100;
+                    _attackDamage = -20;
+                    break;
+                case Bot.Difficulty.Hard:
+                    _maxHealth = 120;
+                    _attackDamage = -30;
+                    break;
+            }
         }
-
+        
         public void SetChosenCard(Card card)
         {
             if (chosenCard != null)

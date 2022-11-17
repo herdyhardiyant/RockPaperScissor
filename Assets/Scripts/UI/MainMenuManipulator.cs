@@ -16,9 +16,9 @@ namespace UI
         [SerializeField]
         private GameObject _MenuButtons;
         
-        public void StartGameWithDifficultySetting(BotDifficulty.Difficulty difficulty)
+        public void StartGameWithDifficultySetting(Bot.Difficulty difficulty)
         {
-            BotDifficulty.SetDifficulty(difficulty);
+            Bot.SetDifficulty(difficulty);
             SceneManager.LoadScene("Gameplay");
         }
         
@@ -45,9 +45,9 @@ namespace UI
             _OptionsPanel.SetActive(false);
             _MenuButtons.SetActive(true);
             
-            easyButton.onClick.AddListener(() => StartGameWithDifficultySetting(BotDifficulty.Difficulty.Easy));
-            mediumButton.onClick.AddListener(() => StartGameWithDifficultySetting(BotDifficulty.Difficulty.Medium));
-            hardButton.onClick.AddListener(() => StartGameWithDifficultySetting(BotDifficulty.Difficulty.Hard));
+            easyButton.onClick.AddListener(() => StartGameWithDifficultySetting(Bot.Difficulty.Easy));
+            mediumButton.onClick.AddListener(() => StartGameWithDifficultySetting(Bot.Difficulty.Medium));
+            hardButton.onClick.AddListener(() => StartGameWithDifficultySetting(Bot.Difficulty.Hard));
             
         }
     }

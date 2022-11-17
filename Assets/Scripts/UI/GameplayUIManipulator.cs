@@ -35,7 +35,7 @@ namespace UI
             }
             else
             {
-                pingText.text = "Difficulty: " + BotDifficulty.SelectedDifficulty.ToString();
+                pingText.text = "Difficulty: " + Bot.SelectedDifficulty;
             }
         }
     }

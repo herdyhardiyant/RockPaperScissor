@@ -34,5 +34,22 @@ namespace Gameplay
             _cards[random].SelectCardSilently();
             _timer = 0;
         }
+        
+        
+        public enum Difficulty
+        {
+            Easy,
+            Medium,
+            Hard
+        }
+        
+        public static Difficulty SelectedDifficulty => _selectedDifficulty;
+
+        private static Difficulty _selectedDifficulty = Difficulty.Easy;
+
+        public static void SetDifficulty(Difficulty difficulty)
+        {
+            _selectedDifficulty = difficulty;
+        }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using RemoteConfig;
 using TMPro;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace Gameplay
         private void Awake()
         {
             _cards = GetComponentsInChildren<Card>();
-
+            DifficultyRemoteConfig.OnRemoteConfigUpdated += OnRemoteConfigUpdated;
          
             var bot = GetComponent<Bot>();
             if (bot)
@@ -32,6 +33,18 @@ namespace Gameplay
             _currentHealth = _maxHealth;
             healthText.text = _currentHealth + "/" + _maxHealth;
             print(healthText.text);
+        }
+
+        private void OnRemoteConfigUpdated()
+        {
+            var bot = GetComponent<Bot>();
+            if (bot)
+            {
+                SetBotDifficulty();
+            }
+            
+            _currentHealth = _maxHealth;
+            healthText.text = _currentHealth + "/" + _maxHealth;
         }
 
         public void SetBotDifficulty()
@@ -85,6 +98,11 @@ namespace Gameplay
             {
                 card.SetClickable(clickable);
             }
+        }
+
+        private void OnDestroy()
+        {
+            DifficultyRemoteConfig.OnRemoteConfigUpdated -= OnRemoteConfigUpdated;
         }
     }
 }

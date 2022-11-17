@@ -19,28 +19,23 @@ namespace UI
             restartButton.SetActive(true);
             winnerText.gameObject.SetActive(true);
         }
-        
+
         private void Awake()
         {
             winnerText.gameObject.SetActive(false);
             restartButton.SetActive(false);
             pingText.gameObject.SetActive(cardGameManager.IsOnline);
         }
-        
-        
-        
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
 
-     
         void Update()
         {
             if (cardGameManager.IsOnline)
             {
                 pingText.text = "Ping: " + PhotonNetwork.GetPing();
+            }
+            else
+            {
+                pingText.text = "Difficulty: " + BotDifficulty.difficulty.ToString();
             }
         }
     }

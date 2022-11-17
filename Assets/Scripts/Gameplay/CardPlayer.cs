@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -6,26 +7,38 @@ namespace Gameplay
     public class CardPlayer : MonoBehaviour
     {
         [SerializeField] public Card chosenCard;
-
-        private readonly float maxHealth = 100;
-        private float currentHealth;
+        public Attack? AttackValue => !chosenCard ? null : chosenCard.AttackValue;
+        public float Health => _currentHealth;
+        public float MaxHealth => _maxHealth;
         public TMP_Text healthText;
-        private Card[] cards;
-    
+        public float AttackDamage => _attackDamage;
+        
+        private float _attackDamage = -20;
+        private float _maxHealth = 100;
+        private float _currentHealth;
+        private Card[] _cards;
+        
         private void Awake()
         {
-            cards = GetComponentsInChildren<Card>();
+            _cards = GetComponentsInChildren<Card>();
+
+         
+            var bot = GetComponent<Bot>();
+            if (bot)
+            {
+                ApplyBotDifficulty();
+            }
+            
+            _currentHealth = _maxHealth;
+            healthText.text = _currentHealth + "/" + _maxHealth;
+            print(healthText.text);
         }
 
-        private void Start()
+        private void ApplyBotDifficulty()
         {
-            currentHealth = maxHealth;
+            _maxHealth = BotDifficulty.Health;
+            _attackDamage = BotDifficulty.AttackDamage;
         }
-
-        public Attack? AttackValue => !chosenCard ? null : chosenCard.AttackValue;
-
-        public float Health => currentHealth;
-        public float MaxHealth => maxHealth;
 
         public void SetChosenCard(Card card)
         {
@@ -39,8 +52,8 @@ namespace Gameplay
 
         public void ChangeHealth(float health)
         {
-            currentHealth += health;
-            healthText.text = currentHealth + "/" + maxHealth;
+            _currentHealth += health;
+            healthText.text = _currentHealth + "/" + _maxHealth;
         }
 
         public void ResetPlayer()
@@ -55,7 +68,7 @@ namespace Gameplay
 
         public void SetCardsClickable(bool clickable)
         {
-            foreach (Card card in cards)
+            foreach (Card card in _cards)
             {
                 card.SetClickable(clickable);
             }

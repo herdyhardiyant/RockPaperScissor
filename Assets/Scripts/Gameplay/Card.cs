@@ -21,7 +21,6 @@ namespace Gameplay
         private Image _cardImage;
 
 
-
         private void Start()
         {
             startScale = transform.localScale;
@@ -38,7 +37,7 @@ namespace Gameplay
         {
             animationTweener = _cardImage.transform.DOScale(startScale * 1.5f, tweenTime);
         }
-        
+
         public void SetSelectedCardSmall()
         {
             animationTweener = _cardImage.transform.DOScale(startScale, tweenTime);
@@ -61,9 +60,8 @@ namespace Gameplay
             Transform cardTransform = transform;
             cardTransform.position = startPosition;
             _cardImage.color = startColor;
-            
-            SetSelectedCardSmall();
 
+            SetSelectedCardSmall();
         }
 
         private void Awake()
@@ -85,10 +83,9 @@ namespace Gameplay
 
         public void AnimateAttack()
         {
-            animationTweener = transform.DOMove(atkPosition.position, tweenTime).SetLoops(2, LoopType.Yoyo)
-                .SetDelay(0.1f);
+            animationTweener = transform.DOMove(atkPosition.position, tweenTime)
+                .OnComplete(() => { transform.position = startPosition; });
             animationTweener = _cardImage.transform.DOScale(startScale, tweenTime);
-
         }
 
         public bool IsAnimating()

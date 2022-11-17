@@ -114,11 +114,11 @@ namespace Gameplay
                 case GameState.Damaged:
                     if (_damagedCardPlayer == player1)
                     {
-                        player1.ChangeHealth(-20);
+                        player1.ChangeHealth(player2.AttackDamage);
                     }
                     else
                     {
-                        player2.ChangeHealth(-20);
+                        player2.ChangeHealth(player1.AttackDamage);
                     }
 
                     var winner = GetWinner();
@@ -191,11 +191,11 @@ namespace Gameplay
 
         private CardPlayer GetWinner()
         {
-            if (player1.Health == 0)
+            if (player1.Health <= 0)
             {
                 return player2;
             }
-            else if (player2.Health == 0)
+            else if (player2.Health <= 0)
             {
                 return player1;
             }
